@@ -1,0 +1,1108 @@
+/* ===================================
+   GLOBAL STYLES & RESET
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===================================
+   HEADER & NAVIGATION
+   =================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(0, 247, 255, 0.15);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo with AI Badge */
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00f7ff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ai-badge {
+    font-size: 0.7rem;
+    background: linear-gradient(135deg, #00f7ff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid #00f7ff;
+    border-radius: 4px;
+    font-weight: 600;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Navigation */
+.nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00f7ff, #a855f7);
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+.nav-link:hover {
+    color: #00f7ff;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Burger Menu Icon */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.burger-menu span {
+    width: 28px;
+    height: 3px;
+    background: linear-gradient(90deg, #00f7ff, #a855f7);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* ===================================
+   HERO SECTION - MUSIC INSPIRED
+   =================================== */
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 3;
+    animation: fadeInUp 1.2s ease;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #00f7ff, #a855f7, #00f7ff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite, textGlow 2s ease-in-out infinite alternate;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #b0b0b0;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    animation: fadeIn 1.5s ease;
+}
+
+/* CTA Button with Play Icon */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #00f7ff, #a855f7);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 30px rgba(0, 247, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 50px rgba(0, 247, 255, 0.7);
+}
+
+/* Sound Wave Visualization */
+.sound-wave {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    height: 100px;
+    z-index: 2;
+}
+
+.wave-bar {
+    width: 6px;
+    background: linear-gradient(to top, #00f7ff, #a855f7);
+    border-radius: 10px;
+    animation: waveAnimation 1.2s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.6);
+}
+
+.wave-bar:nth-child(1) { height: 30%; animation-delay: 0s; }
+.wave-bar:nth-child(2) { height: 50%; animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { height: 70%; animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { height: 90%; animation-delay: 0.3s; }
+.wave-bar:nth-child(5) { height: 60%; animation-delay: 0.4s; }
+.wave-bar:nth-child(6) { height: 40%; animation-delay: 0.5s; }
+.wave-bar:nth-child(7) { height: 20%; animation-delay: 0.6s; }
+
+/* Particle Background Effect */
+.particle-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 247, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 247, 255, 0.05) 0%, transparent 60%);
+    animation: particleFloat 10s ease-in-out infinite;
+}
+
+/* ===================================
+   ABOUT SECTION - AI VISUAL
+   =================================== */
+
+.about {
+    padding: 7rem 0;
+    position: relative;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
+}
+
+.about.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    background: linear-gradient(135deg, #00f7ff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00f7ff, transparent);
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: #b0b0b0;
+    line-height: 1.9;
+    font-size: 1.05rem;
+}
+
+/* AI Head Visualization */
+.ai-visual {
+    position: relative;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-head {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 3px solid rgba(0, 247, 255, 0.3);
+    border-radius: 50%;
+    animation: rotate360 20s linear infinite;
+}
+
+.circuit-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, #00f7ff, transparent);
+    height: 2px;
+    animation: circuitPulse 3s ease-in-out infinite;
+}
+
+.circuit-line:nth-child(1) {
+    width: 150px;
+    top: 30%;
+    left: -20%;
+    animation-delay: 0s;
+}
+
+.circuit-line:nth-child(2) {
+    width: 180px;
+    top: 50%;
+    right: -25%;
+    animation-delay: 1s;
+}
+
+.circuit-line:nth-child(3) {
+    width: 130px;
+    bottom: 25%;
+    left: -15%;
+    animation-delay: 2s;
+}
+
+.ai-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(0, 247, 255, 0.4), transparent);
+    border-radius: 50%;
+    animation: aiPulse 2s ease-in-out infinite;
+}
+
+/* ===================================
+   MUSIC SECTION - WAVEFORM BG
+   =================================== */
+
+.music {
+    padding: 7rem 0;
+    background: rgba(26, 10, 46, 0.4);
+    position: relative;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
+}
+
+.music.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animated SVG Waveform Background */
+.waveform-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.wave-path {
+    animation: waveMove 4s ease-in-out infinite;
+}
+
+/* Music Cards Grid */
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.song-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 247, 255, 0.2);
+    border-radius: 20px;
+    padding: 1.8rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.song-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.song-card:hover::before {
+    left: 100%;
+}
+
+.song-card:hover {
+    transform: translateY(-12px);
+    border-color: #00f7ff;
+    box-shadow: 0 15px 50px rgba(0, 247, 255, 0.4);
+}
+
+/* Album Artwork with Equalizer */
+.song-artwork {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, #00f7ff 0%, #a855f7 100%);
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Animated Equalizer Bars */
+.equalizer {
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+    height: 60px;
+}
+
+.equalizer span {
+    width: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    height: 20%;
+    transition: height 0.3s ease;
+}
+
+.equalizer.playing span {
+    animation: equalizerBounce 0.8s ease-in-out infinite;
+}
+
+.equalizer.playing span:nth-child(1) { animation-delay: 0s; }
+.equalizer.playing span:nth-child(2) { animation-delay: 0.1s; }
+.equalizer.playing span:nth-child(3) { animation-delay: 0.2s; }
+.equalizer.playing span:nth-child(4) { animation-delay: 0.3s; }
+.equalizer.playing span:nth-child(5) { animation-delay: 0.4s; }
+
+.song-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.song-card p {
+    color: #888;
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+}
+
+/* Play Button */
+.play-btn {
+    padding: 0.8rem 2rem;
+    background: transparent;
+    border: 2px solid #00f7ff;
+    color: #00f7ff;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.play-btn:hover {
+    background: #00f7ff;
+    color: #0a0a0a;
+    box-shadow: 0 0 25px rgba(0, 247, 255, 0.6);
+    transform: scale(1.05);
+}
+
+/* ===================================
+   GALLERY SECTION
+   =================================== */
+
+.gallery {
+    padding: 7rem 0;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
+}
+
+.gallery.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    height: 320px;
+    background: linear-gradient(135deg, rgba(0, 247, 255, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+    border-radius: 20px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0, 247, 255, 0.2);
+}
+
+.glow-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 247, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.gallery-item:hover .glow-overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover {
+    transform: scale(1.08);
+    box-shadow: 0 20px 60px rgba(0, 247, 255, 0.5);
+    border-color: #00f7ff;
+}
+
+/* ===================================
+   CONTACT SECTION - PULSE EFFECTS
+   =================================== */
+
+.contact {
+    padding: 7rem 0;
+    background: rgba(26, 10, 46, 0.4);
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
+}
+
+.contact.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Social Links with Pulse Effects */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(0, 247, 255, 0.3);
+    border-radius: 50%;
+    color: #00f7ff;
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #00f7ff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: pulseRing 2s ease-out infinite;
+}
+
+.social-icon:hover {
+    transform: scale(1.15) rotate(5deg);
+    border-color: #00f7ff;
+    box-shadow: 0 0 40px rgba(0, 247, 255, 0.7);
+    background: rgba(0, 247, 255, 0.1);
+}
+
+.social-icon:hover .pulse-ring {
+    animation-play-state: paused;
+}
+
+/* Contact Form with Glow Effects */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+.input-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00f7ff, #a855f7);
+    transition: width 0.4s ease;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(0, 247, 255, 0.2);
+    border-radius: 12px;
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #00f7ff;
+    box-shadow: 0 0 25px rgba(0, 247, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.contact-form input:focus + .input-glow,
+.contact-form textarea:focus + .input-glow {
+    width: 100%;
+}
+
+.submit-btn {
+    padding: 1.2rem 3rem;
+    background: linear-gradient(135deg, #00f7ff, #a855f7);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    align-self: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.submit-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 247, 255, 0.5);
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+
+.footer {
+    padding: 3rem 0;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid rgba(0, 247, 255, 0.2);
+}
+
+.footer-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00f7ff, #a855f7, transparent);
+    animation: footerGlow 3s ease-in-out infinite;
+}
+
+.footer p {
+    color: #888;
+    font-size: 0.95rem;
+}
+
+.ai-text {
+    color: #00f7ff;
+    font-weight: 600;
+}
+
+/* ===================================
+   BACK TO TOP BUTTON
+   =================================== */
+
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #00f7ff, #a855f7);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 999;
+    box-shadow: 0 5px 25px rgba(0, 247, 255, 0.4);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 247, 255, 0.6);
+}
+
+/* ===================================
+   ANIMATIONS & KEYFRAMES
+   =================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 15px rgba(0, 247, 255, 0.5),
+                     0 0 30px rgba(0, 247, 255, 0.3);
+    }
+    to {
+        text-shadow: 0 0 25px rgba(168, 85, 247, 0.5),
+                     0 0 50px rgba(168, 85, 247, 0.3);
+    }
+}
+
+@keyframes waveAnimation {
+    0%, 100% {
+        height: 30%;
+    }
+    50% {
+        height: 100%;
+    }
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(40px, -40px) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes circuitPulse {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 5px rgba(0, 247, 255, 0.3);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(0, 247, 255, 0.8);
+    }
+}
+
+@keyframes aiPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.3;
+    }
+}
+
+@keyframes waveMove {
+    0%, 100% {
+        d: path("M0,100 Q150,50 300,100 T600,100 T900,100 T1200,100");
+    }
+    50% {
+        d: path("M0,100 Q150,150 300,100 T600,100 T900,100 T1200,100");
+    }
+}
+
+@keyframes equalizerBounce {
+    0%, 100% {
+        height: 20%;
+    }
+    25% {
+        height: 80%;
+    }
+    50% {
+        height: 40%;
+    }
+    75% {
+        height: 90%;
+    }
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes footerGlow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateX(-50%) scaleX(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1.2);
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+    /* Burger Menu Display */
+    .burger-menu {
+        display: flex;
+    }
+
+    /* Mobile Navigation */
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 6rem 2rem 2rem;
+        transition: right 0.4s ease;
+        z-index: 999;
+        border-left: 1px solid rgba(0, 247, 255, 0.2);
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    .nav-link::after {
+        bottom: -2px;
+    }
+
+    /* Hero Section */
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .cta-button {
+        padding: 0.9rem 2rem;
+        font-size: 0.95rem;
+    }
+
+    .sound-wave {
+        height: 80px;
+        gap: 6px;
+    }
+
+    .wave-bar {
+        width: 5px;
+    }
+
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .ai-visual {
+        height: 250px;
+    }
+
+    .ai-head {
+        width: 150px;
+        height: 150px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    /* Music & Gallery */
+    .music-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact */
+    .social-links {
+        gap: 1.5rem;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+        width: 50px;
+        height: 50px;
+        bottom: 25px;
+        right: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile Menu Width */
+    .nav {
+        width: 80%;
+    }
+
+    /* Header */
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+
+    .ai-badge {
+        font-size: 0.6rem;
+    }
+
+    /* Hero */
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.6rem;
+        font-size: 0.85rem;
+    }
+
+    .sound-wave {
+        height: 60px;
+        gap: 5px;
+    }
+
+    .wave-bar {
+        width: 4px;
+    }
+
+    /* Sections */
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .about,
+    .music,
+    .gallery,
+    .contact {
+        padding: 4rem 0;
+    }
+
+    /* Social Icons */
+    .social-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+}
