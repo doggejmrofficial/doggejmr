@@ -1,4 +1,4 @@
 # cloudflare-pages.yml
 build:
-  command: echo "No build needed — static site."
+  command: npx wrangler deploy --minify
   directory: .
