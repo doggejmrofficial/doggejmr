@@ -1,4 +1,0 @@
-# cloudflare-pages.yml
-build:
-  command: echo "Static site – no build needed"
-  directory: .
